@@ -21,5 +21,15 @@ namespace GameListRazor.Pages.GameList
         {
             Games = await _db.Game.ToListAsync();
         }
+
+        public async Task<IActionResult> OnPostDelete(int id) {
+            var game = await _db.Game.FindAsync(id);
+            if (game == null) {
+                return NotFound();
+            }
+            _db.Game.Remove(game);
+            await _db.SaveChangesAsync();
+            return RedirectToPage("Index");
+        }
     }
 }

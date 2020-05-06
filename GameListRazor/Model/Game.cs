@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameListRazor.Core
 {
-    class Game
+    public class Game
     {
         [Key]
         public int Id { get; set; }

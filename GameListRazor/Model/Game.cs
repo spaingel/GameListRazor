@@ -9,5 +9,6 @@ namespace GameListRazor
         [Required]
         public string Name { get; set; }
         public string GameSystem { get; set; }
+        public string Genre { get; set; }
     }
 }

@@ -1,8 +1,52 @@
 ﻿@page
 @model GameListRazor.Pages.GameList.EditModel
-@{
-    ViewData["Title"] = "Edit";
+
+@* Copy from Create, change <h2> and submit btn to Update *@
+
+<br />
+<h2 class="text-info">Edit @Model.Game.Name</h2>
+<br />
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Game.Name"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Game.Name" class="form-control" />
+            </div>
+            <span asp-validation-for="Game.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Game.GameSystem"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Game.GameSystem" class="form-control" />
+            </div>
+            <span asp-validation-for="Game.GameSystem" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Game.Genre"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Game.Genre" class="form-control" />
+            </div>
+            <span asp-validation-for="Game.Genre" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3 offset-3">
+                <input type="submit" value="Update" class="btn btn-primary form-control" />
+            </div>
+            <div class="col-3">
+                <a asp-page="Index" class="btn btn-success form-control">Back to List</a>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
 }
-
-<h1>Edit</h1>
-

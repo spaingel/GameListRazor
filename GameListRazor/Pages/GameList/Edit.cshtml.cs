@@ -22,5 +22,20 @@ namespace GameListRazor.Pages.GameList
         {
             Game = await _db.Game.FindAsync(id);
         }
+
+        public async Task<IActionResult> OnPost() {
+            if (ModelState.IsValid) {
+                var GameFromDb = await _db.Game.FindAsync(Game.Id);
+                GameFromDb.Name = Game.Name;
+                GameFromDb.GameSystem = Game.GameSystem;
+                GameFromDb.Genre = Game.Genre;
+
+                await _db.SaveChangesAsync();
+                return RedirectToPage("Index");
+            }
+            else {
+                return RedirectToPage();
+            }
+        }
     }
 }

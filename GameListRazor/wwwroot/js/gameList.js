@@ -19,7 +19,7 @@ function loadDataTable() {
                 "data": "id",
                 "render": function (data) {
                     return `<div class="text-center">
-                        <a href="/GameList/Edit?id=${data}" class='btn btn-success text-white' style='cursor:pointer; width:70px;'>
+                        <a href="/GameList/Upsert?id=${data}" class='btn btn-success text-white' style='cursor:pointer; width:70px;'>
                                 Edit
                         </a>
                         &nbsp;
